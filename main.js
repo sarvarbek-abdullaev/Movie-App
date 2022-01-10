@@ -15,9 +15,9 @@ getMovies(APIURL);
 
 async function getMovies(url) {
     const resp = await fetch(url);
-    const respData = await resp.json()
-
-    showMovies(respData.results)
+    const respData = await resp.json();
+    console.log(respData);
+    showMovies(respData.results);
 }
 function showMovies(movies) {
     main.innerHTML= '';
@@ -87,8 +87,12 @@ form.addEventListener('submit', (e) => {
 
 
 const searchBtn = document.querySelector('#search-btn');
-const exitBtn = document.querySelector('#exit-btn');
+const exitBtnSearch = document.querySelector('#exit-btn');
 const searchForm = document.querySelector('#form');
+const logo = document.querySelector('#logo');
+const navBtn = document.querySelector('#nav-btn');
+const navCloseBtn = document.querySelector('#nav-btn-close');
+const mobileNav = document.querySelector('.mobile-nav')
 
 searchBtn.addEventListener('click', () => {
     if(searchBtn.classList.contains('hidden')){
@@ -96,11 +100,37 @@ searchBtn.addEventListener('click', () => {
     }else{
         searchForm.classList.add('opened');
         searchBtn.classList.add('hidden');
+        navBtn.classList.add('hidden');
+        logo.classList.add('hidden');
+        if(mobileNav.classList.contains('opened')) {
+            mobileNav.classList.remove('opened');
+            navCloseBtn.classList.add('hidden');
+        }
     }
 });
-exitBtn.addEventListener('click', () => {
+exitBtnSearch.addEventListener('click', () => {
     if (searchForm.classList.contains('opened')) {
         searchForm.classList.remove('opened');
         searchBtn.classList.remove('hidden');
+        navBtn.classList.remove('hidden');
+        logo.classList.remove('hidden');
         }
-    })
+});
+navBtn.addEventListener('click', () => {
+    if (navBtn.classList.contains('hidden')) {
+
+    }else {
+        navBtn.classList.add('hidden');
+        navCloseBtn.classList.remove('hidden');
+        mobileNav.classList.add('opened')
+    }
+})
+navCloseBtn.addEventListener('click', () => {
+    if (navCloseBtn.classList.contains('hdden')) {
+        navBtn.classList.remove('hidden');
+    }else {
+        navCloseBtn.classList.add('hidden');
+        navBtn.classList.remove('hidden')
+        mobileNav.classList.remove('opened')
+    }
+})

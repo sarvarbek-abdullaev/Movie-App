@@ -129,6 +129,7 @@ header {
     transform: translateY(0);
 }
 #nav-btn,
+#nav-btn-close,
 #search-btn,
 #exit-btn{
     display: none;
@@ -137,13 +138,77 @@ header {
 .hidden {
     display: none !important;
 }
+.mobile-nav {
+    position: fixed;
+    background: #373b69;
+    top: 72px;
+    width: 70%;
+    height: auto;
+    z-index: 2;
+    opacity: 0.9;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    transition: 0.3s ease-in;
+    transform: translateX(-100%);
+}
+.mobile-nav.opened {
+    transform: translateX(0);
+
+}
+.mobile-nav ul {
+    margin-top: 3rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.nav-link {
+    display: block;
+    color: white;
+    padding: 1.3rem 1.5rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: monospace;
+}
+.social {
+    position: relative;
+    margin-top: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+}
+.social div {
+    width: auto;
+    margin: 0.4rem;
+}
+.social a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-family: monospace;
+}
+.social i {
+    font-size: 2rem;
+    margin-top: -1rem;
+    margin-bottom: 0.5rem;
+}
 @media (max-width: 576px) {
     main {
         justify-content: center;
         width: 100%;
     }
     #logo {
-        margin-left: .5rem;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
         font-size: 1.5rem;
         color: white;
         letter-spacing: 0;
@@ -152,8 +217,8 @@ header {
         width: 2rem;
     }
     header {
-        width: 100%;
         display: flex;
+        width: 100%;
         padding: 0 3rem;
         height: 4.5rem;
     }
@@ -169,16 +234,17 @@ header {
         transform: translateX(0);
     }
     .search {
-        margin-right: -2.5rem;
-        width: 11rem;
-        padding: .5rem 1rem .5rem 2rem;
+        margin: 0;
+        width: 18rem;
+        padding: .5rem 1rem .5rem 2.2rem;
         border-radius: 20px;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
     .search::placeholder {
         padding-left: 0;
     }
     #nav-btn,
+    #nav-btn-close,
     #search-btn,
     #exit-btn {
         display: block;
@@ -187,6 +253,7 @@ header {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        transition: 1s all;
     }
     #exit-btn {
         left: .8rem;
@@ -197,8 +264,9 @@ header {
         display: block;
         right: .75rem;
     }
-    .fa-bars {
+    .fa-bars,#nav-btn-close {
         font-size: 2.5rem;
         left: .75rem;
     }
+    
 }
