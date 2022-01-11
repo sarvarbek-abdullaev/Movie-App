@@ -87,11 +87,10 @@ form.addEventListener('submit', (e) => {
 
 
 const searchBtn = document.querySelector('#search-btn');
-const exitBtnSearch = document.querySelector('#exit-btn');
 const searchForm = document.querySelector('#form');
 const logo = document.querySelector('#logo');
 const navBtn = document.querySelector('#nav-btn');
-const navCloseBtn = document.querySelector('#nav-btn-close');
+const closeBtn = document.querySelector('#nav-btn-close');
 const mobileNav = document.querySelector('.mobile-nav');
 const header = document.querySelector('header');
 
@@ -104,39 +103,49 @@ searchBtn.addEventListener('click', () => {
         searchBtn.classList.add('hidden');
         navBtn.classList.add('hidden');
         logo.classList.add('hidden');
-        header.style.justifyContent = 'center';
+        closeBtn.classList.remove('hidden');
+
+        if (logo.classList.contains('hidden')) {
+            header.style.justifyContent = 'end';
+        }else {
+            header.style.justifyContent = 'center';
+        }
+        
         if(mobileNav.classList.contains('opened')) {
             mobileNav.classList.remove('opened');
-            navCloseBtn.classList.add('hidden');
+            closeBtn.classList.add('hidden');
         }
     }
-});
-exitBtnSearch.addEventListener('click', () => {
-    if (searchForm.classList.contains('opened')) {
-        searchForm.classList.remove('opened');
-        searchBtn.classList.remove('hidden');
-        navBtn.classList.remove('hidden');
-        logo.classList.remove('hidden');
-        }
 });
 navBtn.addEventListener('click', () => {
     if (navBtn.classList.contains('hidden')) {
 
     }else {
         navBtn.classList.add('hidden');
-        navCloseBtn.classList.remove('hidden');
+        closeBtn.classList.remove('hidden');
         mobileNav.classList.add('opened')
         disableScroll()
     }
 })
-navCloseBtn.addEventListener('click', () => {
-    if (navCloseBtn.classList.contains('hdden')) {
+closeBtn.addEventListener('click', () => {
+    if (closeBtn.classList.contains('hdden')) {
         navBtn.classList.remove('hidden');
     }else {
-        navCloseBtn.classList.add('hidden');
+        closeBtn.classList.add('hidden');
         navBtn.classList.remove('hidden')
         mobileNav.classList.remove('opened')
         enableScroll()
+        if (searchForm.classList.contains('opened')) {
+            searchForm.classList.remove('opened');
+            searchBtn.classList.remove('hidden');
+            navBtn.classList.remove('hidden');
+            logo.classList.remove('hidden');
+            }
+        if (logo.classList.contains('hidden')) {
+            header.style.justifyContent = 'end';
+        }else {
+            header.style.justifyContent = 'center';
+        }
     }
 })
 
