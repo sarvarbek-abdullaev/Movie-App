@@ -209,6 +209,63 @@ header {
     margin-top: -1rem;
     margin-bottom: 0.5rem;
 }
+footer {
+    width: 100%;
+    background: #373b69;
+    box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: .99;
+    padding-bottom: 2rem;
+}
+.social-footer {
+    height: 8rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+}
+.social-footer div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.social-footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.social-footer i {
+    font-size: 3rem;
+}
+.social-footer p {
+    margin-top: .5rem;
+}
+footer .content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+    gap: .5rem;
+}
+.content p {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: lighter;
+}
+.content span {
+    font-weight: lighter;
+}
 @media (max-width: 576px) {
     main {
         justify-content: center;
@@ -279,5 +336,10 @@ header {
         font-size: 2.5rem;
         left: .75rem;
     }
-    
+    .social-footer i {
+        font-size: 2rem;
+    }
+    .social-footer {
+        height: 7rem;
+    }
 }
