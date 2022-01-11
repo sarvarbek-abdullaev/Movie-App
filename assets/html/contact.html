@@ -10,10 +10,24 @@
     <script src="../main.js" defer></script>
 </head>
 <body>
+    <section class="loader">
+        <div class="lds-roller">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </section>
     <header>
         <a id="nav-btn" class="fa fa-bars" href="#"></a>
         <a id="nav-btn-close" class="fa fa-times hidden" href="#"></a>
         <a id="logo" href="../../index.html"><img class="logo-img" src="../i-removebg-preview.png" alt="">Movies</a>
+        <nav class="nav">
+            <ul>
+                <li><a href="../../index.html" class="nav-link-main" id="">Home</a></li>
+                <li><a href="./cartoons.html"  class="nav-link-main" id="">Cartoons</a></li>
+                <li><a href="./movies.html"    class="nav-link-main" id="">Movies</a></li>
+                <li><a href="./popular.html"   class="nav-link-main" id="">Popular</a></li>
+                <li><a href="./contact.html"   class="nav-link-main" id="">Contact</a></li>
+            </ul>
+        </nav>
         <form id="form">
             <input type="text"  id="search" placeholder="Search" class="search" autocomplete="off">
         </form>

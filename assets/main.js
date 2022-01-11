@@ -1,20 +1,31 @@
+//  Loader
+const loader = document.querySelector('.loader')
+
+setTimeout(() => {
+    loader.style.opacity = '0'
+    setTimeout(() => {
+        loader.style.display = 'none'
+    }, 500);
+}, 1500);
+
+// Fetch to API
 const APImain = 
-    'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
+'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1';
 
 const APIcartoon = 
-    'https://api.themoviedb.org/3/discover/movie?with_genres=16&api_key=04c35731a5ee918f014970082a0088b1';
+'https://api.themoviedb.org/3/discover/movie?with_genres=16&api_key=04c35731a5ee918f014970082a0088b1';
 
 const APImovies = 
-    'https://api.themoviedb.org/3/discover/movie?with_genres=878&api_key=04c35731a5ee918f014970082a0088b1';
+'https://api.themoviedb.org/3/discover/movie?with_genres=878&api_key=04c35731a5ee918f014970082a0088b1';
 
 const APIpopular = 
-    'https://api.themoviedb.org/3/discover/movie?with_genres=28,18&sort_by=revenue.desc&api_key=04c35731a5ee918f014970082a0088b1';
+'https://api.themoviedb.org/3/discover/movie?with_genres=28,18&sort_by=revenue.desc&api_key=04c35731a5ee918f014970082a0088b1';
 
 const APIsearch = 
-    'https://api.themoviedb.org/3/search/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&query=';
+'https://api.themoviedb.org/3/search/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&query=';
 
 const IMGPATH = 
-    'https://image.tmdb.org/t/p/w1280'
+'https://image.tmdb.org/t/p/w1280'
 
 const cartoons = document.querySelector('#cartoons'); 
 const contact = document.querySelector('#contact'); 
@@ -23,6 +34,8 @@ const popular = document.querySelector('#popular');
 const main = document.querySelector('#main');
 const form = document.querySelector('form'); 
 const search = document.querySelector('.search');
+
+// getMovies(APImain, main);
 
 async function getMovies(url, body) {
     const resp = await fetch(url);
@@ -71,13 +84,13 @@ function showMovies(movies) {
 }
 
 function getClassByRate(vote) {
-     if(vote >= 8) {
-         return 'green'
-     }else if (vote >=5) {
-         return "orange"
-     }else {
+        if(vote >= 8) {
+            return 'green'
+        }else if (vote >=5) {
+            return "orange"
+        }else {
         return 'red'
-     }
+        }
 }
 
 form.addEventListener('submit', (e) => {

@@ -3,28 +3,127 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* LOADER */ 
+.loader {
+    width: 100%;
+    height: 100vh;
+    background-color: #22254b;
+    position: fixed;
+    transition: all .5s ease;
+    z-index: 1000;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+.lds-roller {
+    width: 5rem;
+    height: 5rem;
+    top: 50%;
+}
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
 body {
     background-color: #22254b;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 main {
-    padding-top: 8rem;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
-    width: 80%;
+    justify-content: center;
+    padding: 8rem 0 0 0;
+    width: 88%;
 }
 header {
-    height: 6.5rem;
+    height: 6rem;
     position: fixed;
     width: 100%;
     background-color: #373b69;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.3rem;
+    padding: 0.2rem;
     z-index: 1;
-    opacity: .99;
+    opacity: .98;
     box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.1);
 }
 #logo {
@@ -49,15 +148,16 @@ header {
 .search {
     background-color: #22254b;
     border: 2px solid #22254b;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
+    width: 22rem;
     border-radius: 30px;
     font-family: inherit;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 .search::placeholder {
     color: #7378c5;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 .search:focus {
     background-color: #22254b;
@@ -138,6 +238,38 @@ header {
 }
 .hidden {
     display: none !important;
+}
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+.nav-link-main {
+    position: relative;
+    text-decoration: none;
+    color: #aaa;
+    font-size: 1.25rem;
+    margin: 0 1rem;
+    transition: .5s;
+}
+.nav-link-main:hover {
+    color: #fff;
+}
+.nav-link-main::after {
+    bottom: -.5rem;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #aaa;
+    width: 0;
+    transition: width .5s ease 0s, left 0.5s ease 0s;
+}
+.nav-link-main:hover::after {
+    background: #fff;
+    width: 100%;
+    left: 0;
 }
 .mobile-nav {
     background: #373b69;
@@ -222,7 +354,7 @@ footer {
     padding-bottom: 2rem;
 }
 .social-footer {
-    height: 8rem;
+    height: 6rem;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -249,10 +381,15 @@ footer {
     align-items: center;
 }
 .social-footer i {
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 .social-footer p {
     margin-top: .5rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.social-footer div:hover i,
+.social-footer div:hover p {
+    color: #000;
 }
 footer .content{
     width: 100%;
@@ -341,5 +478,8 @@ footer .content{
     }
     .social-footer {
         height: 7rem;
+    }
+    .nav {
+        display: none;
     }
 }
