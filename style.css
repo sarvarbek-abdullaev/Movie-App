@@ -149,11 +149,10 @@ header {
     position: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-top: 2px solid rgba(0, 0, 0, 0.1);
     transition: 0.3s ease-in;
     transform: translateX(-100%);
-    padding: 1rem 0 0 0;
 }
 .mobile-nav.opened {
     transform: translateX(0);
