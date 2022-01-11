@@ -92,7 +92,9 @@ const searchForm = document.querySelector('#form');
 const logo = document.querySelector('#logo');
 const navBtn = document.querySelector('#nav-btn');
 const navCloseBtn = document.querySelector('#nav-btn-close');
-const mobileNav = document.querySelector('.mobile-nav')
+const mobileNav = document.querySelector('.mobile-nav');
+const header = document.querySelector('header');
+
 
 searchBtn.addEventListener('click', () => {
     if(searchBtn.classList.contains('hidden')){
@@ -102,6 +104,7 @@ searchBtn.addEventListener('click', () => {
         searchBtn.classList.add('hidden');
         navBtn.classList.add('hidden');
         logo.classList.add('hidden');
+        header.style.justifyContent = 'center';
         if(mobileNav.classList.contains('opened')) {
             mobileNav.classList.remove('opened');
             navCloseBtn.classList.add('hidden');
@@ -123,6 +126,7 @@ navBtn.addEventListener('click', () => {
         navBtn.classList.add('hidden');
         navCloseBtn.classList.remove('hidden');
         mobileNav.classList.add('opened')
+        disableScroll()
     }
 })
 navCloseBtn.addEventListener('click', () => {
@@ -132,5 +136,19 @@ navCloseBtn.addEventListener('click', () => {
         navCloseBtn.classList.add('hidden');
         navBtn.classList.remove('hidden')
         mobileNav.classList.remove('opened')
+        enableScroll()
     }
 })
+
+
+function disableScroll() {
+    scrollTop = document.documentElement.scrollTop;
+    scrollLeft = document.documentElement.scrollLeft;
+
+    window.onscroll = function() {
+        window.scrollTo(scrollLeft, scrollTop)
+    };
+}
+function enableScroll() {
+    window.onscroll = function() {}
+}
