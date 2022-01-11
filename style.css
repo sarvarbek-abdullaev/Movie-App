@@ -153,6 +153,7 @@ header {
     border-top: 2px solid rgba(0, 0, 0, 0.1);
     transition: 0.3s ease-in;
     transform: translateX(-100%);
+    padding: 2rem;
 }
 .mobile-nav.opened {
     transform: translateX(0);
