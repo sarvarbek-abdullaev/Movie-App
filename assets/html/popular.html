@@ -5,27 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="./assets/main.js" defer></script>
+    <script src="../main.js" defer></script>
 </head>
-<body onload="getMovies(APImain, main)">
+<body onload="getMovies(APIpopular, comedies)">
     <header>
         <a id="nav-btn" class="fa fa-bars" href="#"></a>
         <a id="nav-btn-close" class="fa fa-times hidden" href="#"></a>
-        <a id="logo" href="index.html"><img class="logo-img" src="./assets/i-removebg-preview.png" alt="">Movies</a>
+        <a id="logo" href="../../index.html"><img class="logo-img" src="../i-removebg-preview.png" alt="">Movies</a>
         <form id="form">
             <input type="text"  id="search" placeholder="Search" class="search" autocomplete="off">
         </form>
         <a id="search-btn" class="fas fa-search" href="#"></a>
     </header>
+    <main id="comedies">
+    </main>
     <div class="mobile-nav">
         <ul>
-            <li><a href="index.html" class="nav-link" id="">Home</a></li>
-            <li><a href="./assets/html/cartoons.html" class="nav-link" id="">Cartoons</a></li>
-            <li><a href="./assets/html/movies.html" class="nav-link" id="">Movies</a></li>
-            <li><a href="./assets/html/popular.html" class="nav-link" id="">Popular</a></li>
-            <li><a href="./assets/html/contact.html" class="nav-link" id="">Contact</a></li>
+            <li><a href="../../index.html" class="nav-link" id="">Home</a></li>
+            <li><a href="./cartoons.html" class="nav-link" id="">Cartoons</a></li>
+            <li><a href="./movies.html" class="nav-link" id="">Movies</a></li>
+            <li><a href="./popular.html" class="nav-link" id="">Popular</a></li>
+            <li><a href="./contact.html" class="nav-link" id="">Contact</a></li>
         </ul>
         <div class="social">
             <div class="telegram">
@@ -49,7 +51,7 @@
             </div>
         </div>
     </div>
-    <main id="main">
+    <main>
     </main>
     <footer>
         <div class="social-footer">
