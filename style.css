@@ -140,24 +140,27 @@ header {
     display: none !important;
 }
 .mobile-nav {
-    position: fixed;
     background: #373b69;
     top: 72px;
     width: 100%;
-    height: auto;
+    height: 92vh;
     z-index: 2;
-    opacity: 0.9;
+    opacity: 0.92;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-top: 2px solid rgba(0, 0, 0, 0.1);
-    height: 100vh;
     transition: 0.3s ease-in;
     transform: translateX(-100%);
+    padding: 1rem 0 0 0;
 }
 .mobile-nav.opened {
     transform: translateX(0);
 
 }
 .mobile-nav ul {
-    margin-top: 3rem;
+    position: relative;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -183,20 +186,22 @@ header {
     font-size: 2.2rem;
 }
 .social {
+    position: relative;
+    margin-bottom: 1rem;
     width: 100%;
-    position: absolute;
-    bottom: 6rem;
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
     text-align: center;
 }
 .social div {
+    height: 5rem;
     width: 5rem;
     margin: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .social a {
     text-decoration: none;
