@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const movies = document.querySelector('#movies'); 
     const popular = document.querySelector('#popular'); 
     const main = document.querySelector('#main');
-    const form = document.querySelector('form'); 
+    const form = document.querySelector('#form'); 
     const search = document.querySelector('.search');
     
     // Adding elements to page
@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (popular) {
         getMovies(APIpopular, popular);
     }
-
+    
     async function getMovies(url, body) {
         const resp = await fetch(url);
         const respData = await resp.json();
@@ -92,9 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    function showMovies(movies) {
-    }
-    
+
     function getClassByRate(vote) {
             if(vote >= 8) {
                 return 'green'
@@ -142,7 +140,6 @@ window.addEventListener('DOMContentLoaded', () => {
             
             if(mobileNav.classList.contains('opened')) {
                 mobileNav.classList.remove('opened');
-                closeBtn.classList.add('hidden');
             }
         }
     });
