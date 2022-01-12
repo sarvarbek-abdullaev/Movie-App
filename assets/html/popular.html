@@ -29,7 +29,8 @@
             </ul>
         </nav>
         <form id="form">
-            <input type="text"  id="search" placeholder="Search" class="search" autocomplete="off">
+            <input type="text"  id="search" placeholder="Search for any movie" class="search" autocomplete="off">
+            <a id="search-btn-submit" class="fas fa-search submit" href="#"></a>
         </form>
         <a id="search-btn" class="fas fa-search" href="#"></a>
     </header>
@@ -65,7 +66,7 @@
             </div>
         </div>
     </div>
-    <main>
+    <main id="popular">
     </main>
     <footer>
         <div class="social-footer">
@@ -93,10 +94,5 @@
             <p><span>&#xA9</span> 2022 All rights reserved</p>
         </div> 
     </footer>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            getMovies(APIpopular, popular);
-        });
-    </script>
 </body>
 </html>
