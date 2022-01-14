@@ -110,8 +110,10 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 8rem 0 0 0;
     width: 88%;
+}
+main.padding {
+    padding: 8rem 0 0 0;
 }
 header {
     height: 6rem;
@@ -221,27 +223,43 @@ header {
     color: rgb(189, 42, 42);
 }
 
-.overview {
-    background-color: #000;
-    color: #fff;
-    font-weight: bold;
-    opacity: .8;
-    padding: 2rem;
+.learn-more{
     position: absolute;
-    max-height: 100%;
-    overflow: auto;
     left: 0;
     right: 0;
     bottom: 0;
-    transform: translateY(100%);
-    transition: transform .3s ease-in-out;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    max-height: 100%;
+    overflow: auto;
+    opacity: 0;
+    transition: .5s all;
 }
-.overview h4 {
-    margin-top: 0;
-    margin-bottom: .5rem;
+.learn-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 13rem;
+    height: 4.2rem;
+    background: transparent;
+    outline: none;
+    color: #aaa;
+    text-align: center;
+    text-decoration: none;
+    border: .1rem solid rgba(115, 120, 197, .38);
+    border-radius: 20px;
+    font-size: 1.7rem;
+    transition: .5s;
 }
-.movie:hover .overview {
-    transform: translateY(0);
+.learn-more-btn:hover{
+        background: rgba(34, 37, 75, 1);
+        color: #fff;
+}
+.movie:hover .learn-more {
+    opacity: 0.9;
 }
 #nav-btn,
 #nav-btn-close,
@@ -426,13 +444,11 @@ footer .content{
 .content span {
     font-weight: lighter;
 }
-#popular {
-    padding: 0;
-}
  
     /* Contact Page */
 .contacts{
     margin: 4rem 0 0 0;
+    padding: 7rem 0;
 }
 .contacts .row{
     width: 90%;
@@ -457,9 +473,6 @@ footer .content{
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-.contacts .btn:hover{
-    color: black;
 }
 .contacts .about__content{
     margin: 2rem 1rem;
@@ -550,11 +563,129 @@ footer .content{
     background: rgba(34, 37, 75, .7);
     color: #fff;
 }
+    /* For New Page For Movie */
+.movie-page-main {
+    width: 100%;
+    padding: 0;
+    padding-top: 0rem !important;
+    overflow: hidden;
+}
+.wrapper {
+    min-width: 100%;
+    min-height: 100vh;
+    padding-top: 96vh;
+    padding-bottom: 130vh;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+}
+.movie-page {
+    height: auto;
+    width: 100%;
+    background: #22254b;
+    box-shadow: 0 0 30vh 30vh #22254b;
+}
+.movie-page-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    transform: translate(0, -100%);
+    color: #fff;
+    width: 95%;
+    padding: 0 2rem;
+}
+.movie-page-header .name {
+    font-size: 5rem;
+    width: 70%;
+}
+.movie-page-header .score {
+    width: fit-content;
+    font-size: 3rem;
+    line-height: 1;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+.movie-page-header .score.green {
+    color: rgb(0, 180, 0);
+    border: 0.25rem solid rgb(0, 180, 0);
+}
+.movie-page-header .score.orange {
+    color: orange;
+    border: 0.25rem solid orange;
+}
+.movie-page-header .score.red {
+    color: rgb(189, 42, 42);
+    border: 0.25rem solid rgb(189, 42, 42);
+}
+.movie-page-body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 5rem;
+}
+.movie-page-body__overview {
+    width: 60%;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+    padding: 2rem 1rem 2rem 5rem;
+}
+.movie-page-body__overview h1 {
+    font-size: 3rem;
+    color: #eee;
+    font-family:cursive;
+    letter-spacing: 5px;
+}
+.movie-page-body__overview p {
+    font-size: 1.4rem;
+    color: #eee;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.movie-page-body__overview-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.movie-page-body__overview-li {
+    list-style-type: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.4rem;
+    color: #eee;
+    letter-spacing: 2px;
+}
+.movie-page-body__overview-li span {
+    margin-left: 3.85rem;
+}
+.movie-page-body__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+.movie-page-body__image img {
+    height: 35rem;
+    object-fit: contain;
+}
 @media (max-width: 576px) {
     main {
         justify-content: center;
         width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: 0;
+    }
+    .wrapper {
+        min-width: 100%;
+        min-height: 100vh;
+        padding-top: 96vh;
+        padding-bottom: 130vh;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+        background-size: cover !important;
     }
     #logo {
         margin-left: 0;
@@ -664,5 +795,64 @@ footer .content{
     #contact-btn {
         width: 11rem;
         border-radius: 20px;
+    }
+        /* For New Page For Movie */
+    .movie-page {
+        box-shadow: 0 0 30vh 45vh #22254b;
+    }
+    .movie-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 0 1.5rem;
+    }
+    .movie-page-header .name {
+        font-size: 3.5rem;
+        width: 80%;
+    }
+    .movie-page-header .score {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+    .movie-page-body {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding-bottom: 0;
+    }
+    .movie-page-body__overview {
+        width: 100%;   
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 2rem 1rem 2rem;
+    }
+    .movie-page-body__overview h1 {
+        font-size: 2.5rem;
+    }
+    .movie-page-body__overview p {
+        font-size: 1.2rem;
+    }
+    .movie-page-body__overview-ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .movie-page-body__overview-li {
+        font-size: 1.2rem;
+        color: #eee;
+        letter-spacing: 1.4px;
+    }
+    .movie-page-body__overview-li span {
+        margin-left: 3.2rem;
+    }
+    .movie-page-body__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .movie-page-body__image img {
+        height: 25rem;
+        object-fit: contain;
     }
 }
