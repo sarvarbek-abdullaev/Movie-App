@@ -353,6 +353,11 @@ header {
     font-weight: lighter;
     font-size: 2.2rem;
 }
+.nav-link.active {
+    color: #7378c5;
+    font-weight: lighter;
+    font-size: 2.2rem;
+}
 .social {
     position: relative;
     margin-bottom: 1rem;
@@ -702,12 +707,10 @@ footer .content{
         width: 100%;
         height: 4.5rem;
     }
-    main {
-        padding-top: 5.5rem;
-    }
     #form {
         position: absolute;
         margin-right: 0;
+        width: 80%;
         transform: translateX(200%);
         transition: .5s all;
     }
@@ -720,7 +723,7 @@ footer .content{
         margin: 0;
         width: 18rem;
         height: 3.4rem;
-        right: 5%;
+        right: 4%;
         padding: 1rem 3.5rem 1rem 1rem;
         border-radius: 20px;
         font-size: 1.3rem;

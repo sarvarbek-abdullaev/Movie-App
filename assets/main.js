@@ -58,7 +58,6 @@ window.addEventListener('DOMContentLoaded', () => {
     async function getMovies(url, body) {
         const resp = await fetch(url);
         const respData = await resp.json();
-        // console.log(respData);
         body.innerHTML = '';
 
         respData.results.forEach((movie) => {
@@ -82,25 +81,6 @@ window.addEventListener('DOMContentLoaded', () => {
             if (poster_path != null) {
                 body.appendChild(movieEl);
             };
-
-            function voteAverage(result) {
-                switch (result) {
-                    default:
-                        result;
-                        break;
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                        result += '.0'
-                        break;
-                }
-                return result;
-            }
         });
 
         function voteAverage(result) {
