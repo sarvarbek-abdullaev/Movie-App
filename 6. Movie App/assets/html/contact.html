@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../contact.js" defer></script>
+    <script src="../formValidation.js" defer></script>
+</head>
+<body>
+    <section class="loader">
+        <div class="lds-roller">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </section>
+    <header>
+        <a id="nav-btn" class="fa fa-bars" href="#"></a>
+        <a id="nav-btn-close" class="fa fa-times hidden" href="#"></a>
+        <a id="logo" href="../../index.html"><img class="logo-img" src="../i-removebg-preview.png" alt="">Movies</a>
+        <nav class="nav">
+            <ul>
+                <li><a href="../../index.html" class="nav-link-main">Home</a></li>
+                <li><a href="./cartoons.html"  class="nav-link-main">Cartoons</a></li>
+                <li><a href="./movies.html"    class="nav-link-main">Movies</a></li>
+                <li><a href="./popular.html"   class="nav-link-main">Popular</a></li>
+                <li><a href="./contact.html"   class="nav-link-main active">Contact</a></li>
+            </ul>
+        </nav>
+        <form id="form">
+            <input type="text"  id="search" placeholder="Search for any movie" class="search" autocomplete="off">
+            <a id="search-btn-submit" class="fas fa-search submit" href="#"></a>
+        </form>
+        <a id="search-btn" class="fas fa-search" href="#"></a>
+    </header>
+    <main id="contact" class="contacts">
+        <div class="row">
+            <div class="about__left">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d47950.83553912683!2d69.28494814999999!3d41.310446850000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1634926296158!5m2!1sen!2s" style="border:0;" allowfullscreen="" loading="lazy" class="map"></iframe>
+            </div>
+            <div class="about__content">
+                <h3>GET IN TOUCH</h3>
+                    <form class="form">
+                    <div class="inputBox" id="contact-div-1">
+                        <span class="fa fa-user"></span>
+                        <input type="text" placeholder="Name" id="contactName" autocomplete="off">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small></small>
+                    </div>
+                    <div class="inputBox" id="contact-div-2">
+                        <span class="fa fa-envelope"></span>
+                        <input type="email" placeholder="Email" id="contactEmail" autocomplete="off">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small></small>
+                    </div>
+                    <div class="inputBox" id="contact-div-3">
+                        <span class="fa fa-phone"></span>
+                        <input type="number" placeholder="Phone number" id="contactNumber" autocomplete="off">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small></small>
+                    </div>
+                    <button id="contact-btn" class="contact-btn">Contact Now</button>
+                </form>
+            </div>
+
+    </div>
+    </main>
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="../../index.html" class="nav-link">Home</a></li>
+            <li><a href="./cartoons.html" class="nav-link">Cartoons</a></li>
+            <li><a href="./movies.html" class="nav-link">Movies</a></li>
+            <li><a href="./popular.html" class="nav-link">Popular</a></li>
+            <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="social">
+            <div class="telegram">
+                <a href="https://t.me/Sarvarbek_Abdullaev">
+                    <i class="fab fa-telegram"></i>
+                    <p>Telegram</p>
+                </a>
+                
+            </div>
+            <div class="instagram">
+                <a href="http://instagram.com/Sarvarbek_Abdullaev_">
+                    <i class="fab fa-instagram"></i>
+                    <p>Instragram</p>
+                </a>
+            </div>
+            <div class="github">
+                <a href="https://github.com/abdullaev2oo2/">
+                    <i class="fab fa-github"></i>
+                    <p>Github</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <main>
+    </main>
+    <footer>
+        <div class="social-footer">
+            <div class="telegram">
+                <a href="https://t.me/Sarvarbek_Abdullaev">
+                    <i class="fab fa-telegram"></i>
+                    <p>Telegram</p>
+                </a> 
+            </div>
+            <div class="instagram">
+                <a href="http://instagram.com/Sarvarbek_Abdullaev_">
+                    <i class="fab fa-instagram"></i>
+                    <p>Instragram</p>
+                </a>
+            </div>
+            <div class="github">
+                <a href="https://github.com/abdullaev2oo2/">
+                    <i class="fab fa-github"></i>
+                    <p>Github</p>
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <p>Created by Sarvarbek Abdullaev</p>
+            <p><span>&#xA9</span> 2022 All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
