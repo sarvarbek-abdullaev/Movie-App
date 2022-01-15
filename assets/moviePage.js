@@ -40,14 +40,16 @@ window.addEventListener('DOMContentLoaded', () => {
     if (prevURL[0].includes('index')){
         getMovies(APImain);
     }
-    if (prevURL[0].includes('cartoons')){
+    else if (prevURL[0].includes('cartoons')){
         getMovies(APIcartoons)
     }
-    if (prevURL[0].includes('movies')){
+    else if (prevURL[0].includes('movies')){
         getMovies(APImovies)
     }
-    if (prevURL[0].includes('popular')){
+    else if (prevURL[0].includes('popular')){
         getMovies(APIpopular)
+    }else {
+        getMovies(APImain);
     }
     
     async function getMovies(url) {
