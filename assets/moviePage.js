@@ -28,72 +28,61 @@ window.addEventListener('DOMContentLoaded', () => {
     const IMGPATH =
         'https://image.tmdb.org/t/p/w1280'
 
-    const cartoons = document.querySelector('#cartoons');
-    const movies = document.querySelector('#movies');
-    const popular = document.querySelector('#popular');
-    const main = document.querySelector('#main');
+    const moviePage = document.querySelector('#moviePage');
     const form = document.querySelector('#form');
     const search = document.querySelector('.search');
-    const footer = document.querySelectorAll('footer');
 
 
-    // Adding elements to page
-    if (main) {
-        main.classList.add('padding');
-        getMovies(APImain, main);
+    const prevURL = JSON.parse(localStorage.getItem('prevURL'));
+    
+    const indexOfClickedBtn = JSON.parse(localStorage.getItem('idOfClickedBtn'));
+    
+    if (prevURL[0].includes('index')){
+        getMovies(APImain);
     }
-    if (cartoons) {
-        cartoons.classList.add('padding');
-        getMovies(APIcartoons, cartoons);
+    if (prevURL[0].includes('cartoons')){
+        getMovies(APIcartoons)
     }
-    if (movies) {
-        movies.classList.add('padding');
-        getMovies(APImovies, movies);
+    if (prevURL[0].includes('movies')){
+        getMovies(APImovies)
     }
-    if (popular) {
-        popular.classList.add('padding');
-        getMovies(APIpopular, popular);
+    if (prevURL[0].includes('popular')){
+        getMovies(APIpopular)
     }
-
-    async function getMovies(url, body) {
+    
+    async function getMovies(url) {
         const resp = await fetch(url);
         const respData = await resp.json();
-
-        function openMoviePage() {
-            if (main) {
-                location.replace('assets/html/moviePage.html');
-            }else {
-                location.replace('moviePage.html');
-            }
-        }
-        body.innerHTML = '';
-
-        respData.results.forEach((movie) => {
-            const {
-                poster_path,
-                title,
-                vote_average
-            } = movie;
-            const movieEl = document.createElement('div');
-            movieEl.classList.add('movie');
-            movieEl.innerHTML = `
-                <img class="movie-img" src="${IMGPATH + poster_path}" alt="${title}">
-                <div class="movie-info">
-                    <h3>${title}</h3>
-                    <span class="${getClassByRate(vote_average)}">${voteAverage(vote_average)}</span>
-                </div>
-                <div class="learn-more">
-                    <a href="##" class="learn-more-btn">Learn more</a>
-                </div>
+        showingMovie(indexOfClickedBtn);    
+        function showingMovie(a) {
+                moviePage.classList.add('movie-page-main');
+                moviePage.innerHTML = `
+                    <div class="wrapper" style="background: url(${IMGPATH + respData.results[a].backdrop_path})">
+                        <div class="movie-page">
+                            <div class="movie-page-header">
+                                <h1 class="name">${respData.results[a].title}</h1>
+                                <h1 class="score ${getClassByRate(respData.results[a].vote_average)}">${voteAverage(respData.results[a].vote_average)}</h1>
+                            </div>
+                            <div class="movie-page-body">
+                                <div class="movie-page-body__overview">
+                                    <h1>Overview</h1>
+                                    <p>
+                                    ${respData.results[a].overview}
+                                    </p>
+                                    <h1>Details</h1>
+                                    <ul class="movie-page-body__overview-ul">
+                                            <li class="movie-page-body__overview-li">Original language :   ${respData.results[a].original_language}</li>
+                                            <li class="movie-page-body__overview-li">Release date <span>: ${respData.results[a].release_date}</span></li>
+                                    </ul>
+                                </div>
+                                <div class="movie-page-body__image">
+                                    <img src="${IMGPATH + respData.results[a].poster_path}" alt="${respData.results[a].title}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 `;
-                body.appendChild(movieEl);
-        });
-        for(i = 0; i < respData.results.length; i++) {
-            if(respData.results[i].poster_path == null) {
-                const movieEl = document.querySelectorAll('.movie');
-                movieEl[i].classList.add('hidden');
             }
-        }
 
         function voteAverage(result) {
             switch (result) {
@@ -113,17 +102,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             return result;
         }
-
-        const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
-        learnMoreBtns.forEach((learnMoreBtn, index) => {
-            learnMoreBtn.addEventListener('click', (e) => {
-                let clicked = index;
-                const idOfClickedBtn = [];
-                idOfClickedBtn.push(clicked);
-                localStorage.setItem('idOfClickedBtn', JSON.parse(idOfClickedBtn));
-                openMoviePage();
-            })
-        })
     }
 
     function getClassByRate(vote) {
@@ -144,52 +122,23 @@ window.addEventListener('DOMContentLoaded', () => {
     const mobileNav = document.querySelector('.mobile-nav');
     const header = document.querySelector('header');
 
-    function removingClassesofMoviePage() {
-        if (main) main.classList.remove('movie-page-main');
-        if (cartoons) cartoons.classList.remove('movie-page-main');
-        if (movies) movies.classList.remove('movie-page-main');
-        if (popular) popular.classList.remove('movie-page-main');
-        if (footer) footer.forEach(footerEl => {
-            footerEl.classList.remove('hidden');
-        });
-    }
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         searchMovie();
-        removingClassesofMoviePage();
     });
 
     searchBtnForm.addEventListener('click', (e) => {
         e.preventDefault();
         searchMovie();
-        removingClassesofMoviePage();
     });
 
     // Function for searching
     function searchMovie() {
         const searchTerm = search.value;
 
-        if (searchTerm, main) {
+        if (searchTerm) {
 
-            getMovies(APIsearch + searchTerm, main);
-
-            search.value = '';
-        }
-        if (searchTerm, cartoons) {
-
-            getMovies(APIsearch + searchTerm, cartoons);
-
-            search.value = '';
-        }
-        if (searchTerm, movies) {
-
-            getMovies(APIsearch + searchTerm, movies);
-
-            search.value = '';
-        }
-        if (searchTerm, popular) {
-
-            getMovies(APIsearch + searchTerm, popular);
+            getMovies(APIsearch + searchTerm);
 
             search.value = '';
         }
@@ -261,4 +210,5 @@ window.addEventListener('DOMContentLoaded', () => {
     function enableScroll() {
         window.onscroll = function () {}
     }
+
 })

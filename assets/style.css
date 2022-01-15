@@ -710,6 +710,7 @@ footer .content{
     #form {
         position: absolute;
         margin-right: 0;
+        width: 80%;
         transform: translateX(200%);
         transition: .5s all;
     }
@@ -722,7 +723,7 @@ footer .content{
         margin: 0;
         width: 18rem;
         height: 3.4rem;
-        right: 5%;
+        right: 4%;
         padding: 1rem 3.5rem 1rem 1rem;
         border-radius: 20px;
         font-size: 1.3rem;
