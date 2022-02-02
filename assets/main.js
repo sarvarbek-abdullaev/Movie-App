@@ -32,9 +32,16 @@ window.addEventListener('DOMContentLoaded', () => {
     const movies = document.querySelector('#movies');
     const popular = document.querySelector('#popular');
     const main = document.querySelector('#main');
+    const movieSearched = document.querySelector('#searchMovie');
     const form = document.querySelector('#form');
     const search = document.querySelector('.search');
     const footer = document.querySelectorAll('footer');
+
+
+    const moviePage = 'moviePage'
+    const movieSearchedName = 'searchMovie'
+
+    const searchedValueFromLocalStorage = JSON.parse(localStorage.getItem('prevSearchTerm'));
 
 
     // Adding elements to page
@@ -54,18 +61,23 @@ window.addEventListener('DOMContentLoaded', () => {
         popular.classList.add('padding');
         getMovies(APIpopular, popular);
     }
+    if (movieSearched) {
+        movieSearched.classList.add('padding');
+        getMovies((APIsearch + searchedValueFromLocalStorage), movieSearched);
+    }
+
+    function openMoviePage(a) {
+        if (main) {
+            location.replace(`assets/html/${a}.html`);
+        }else {
+            location.replace(`${a}.html`);
+        }
+    };
 
     async function getMovies(url, body) {
         const resp = await fetch(url);
         const respData = await resp.json();
 
-        function openMoviePage() {
-            if (main) {
-                location.replace('assets/html/moviePage.html');
-            }else {
-                location.replace('moviePage.html');
-            }
-        }
         body.innerHTML = '';
 
         respData.results.forEach((movie) => {
@@ -121,7 +133,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 const idOfClickedBtn = [];
                 idOfClickedBtn.push(clicked);
                 localStorage.setItem('idOfClickedBtn', JSON.parse(idOfClickedBtn));
-                openMoviePage();
+                openMoviePage(moviePage);
             })
         })
     }
@@ -166,33 +178,20 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // Function for searching
+    
     function searchMovie() {
         const searchTerm = search.value;
 
-        if (searchTerm, main) {
+        function updateSearchTermLS() {
+            const prevSearchTerm = [];
+            prevSearchTerm.push(searchTerm);
+            localStorage.setItem('prevSearchTerm', JSON.stringify(prevSearchTerm));
+        };
+    
+        updateSearchTermLS();
+        
+        openMoviePage(movieSearchedName);
 
-            getMovies(APIsearch + searchTerm, main);
-
-            search.value = '';
-        }
-        if (searchTerm, cartoons) {
-
-            getMovies(APIsearch + searchTerm, cartoons);
-
-            search.value = '';
-        }
-        if (searchTerm, movies) {
-
-            getMovies(APIsearch + searchTerm, movies);
-
-            search.value = '';
-        }
-        if (searchTerm, popular) {
-
-            getMovies(APIsearch + searchTerm, popular);
-
-            search.value = '';
-        }
     }
 
     searchBtn.addEventListener('click', () => {

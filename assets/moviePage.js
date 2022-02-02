@@ -36,6 +36,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const prevURL = JSON.parse(localStorage.getItem('prevURL'));
     
     const indexOfClickedBtn = JSON.parse(localStorage.getItem('idOfClickedBtn'));
+
+    const searchedValueFromLocalStorage = JSON.parse(localStorage.getItem('prevSearchTerm'));
+
     
     if (prevURL[0].includes('index')){
         getMovies(APImain);
@@ -48,6 +51,8 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     else if (prevURL[0].includes('popular')){
         getMovies(APIpopular)
+    }else if (prevURL[0].includes('searchMovie')) {
+        getMovies(APIsearch + searchedValueFromLocalStorage)
     }else {
         getMovies(APImain);
     }
