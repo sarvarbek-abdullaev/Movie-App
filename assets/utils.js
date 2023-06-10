@@ -137,7 +137,7 @@ export const renderMoviePage = (movie) => {
       <div class="movie-page">
         <div class="movie-page-header">
           <h1 class="name">${movie.title}</h1>
-          <h1 class="score ${getClassByRate(movie.vote_average)}">${voteAverage(movie.vote_average)}</h1>
+          <h1 class="score ${getClassByRate(movie.vote_average)}">${voteAverage(movie.vote_average).toFixed(1)}</h1>
         </div>
         <div class="movie-page-body">
           <div class="movie-page-body__overview">
@@ -147,8 +147,8 @@ export const renderMoviePage = (movie) => {
             </p>
             <h1>Details</h1>
             <ul class="movie-page-body__overview-ul">
-                    <li class="movie-page-body__overview-li">Original language :   ${movie.original_language}</li>
-                    <li class="movie-page-body__overview-li">Release date <span>: ${movie.release_date}</span></li>
+              <li class="movie-page-body__overview-li">Original language :   ${movie.original_language}</li>
+              <li class="movie-page-body__overview-li">Release date <span>: ${movie.release_date}</span></li>
             </ul>
           </div>
           <div class="movie-page-body__image">
